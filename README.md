@@ -30,13 +30,13 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/msync.git
+git clone https://github.com/Harsh-2002/msync.git
 
 # Make the script executable
-chmod +x msync/msync
+chmod +x msync/msync.sh
 
 # Move to a directory in your PATH
-sudo cp msync/msync /usr/local/bin/
+sudo cp msync/msync.sh /usr/local/bin/msync
 
 # Verify installation
 msync --version

@@ -46,7 +46,7 @@ msync --version
 ### One-Line Install
 
 ```bash
-sudo curl -sL https://raw.githubusercontent.com/Harsh-2002/msync/main/msync.sh && sudo chmod +x msync.sh && sudo mv msync /usr/local/bin/ && sudo msync --help
+sudo curl -sL https://raw.githubusercontent.com/Harsh-2002/msync/main/msync.sh -O msync.sh && sudo chmod +x msync.sh && sudo mv msync /usr/local/bin/ && sudo msync --help
 ```
 
 ### Install Dependencies (if needed)

@@ -1,6 +1,6 @@
 #!/bin/bash
 # msync - Multi-Host Synchronization Tool
-# Version: 1.5.0
+# Version: 1.7.0
 # Description: Synchronize files/directories to multiple hosts simultaneously
 # Author: Your Name
 # License: MIT

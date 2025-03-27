@@ -12,8 +12,8 @@ NC='\033[0m' # No Color
 # Configuration variables
 msync.sh_VERSION="1.5.0"
 INSTALL_DIR="/usr/local/bin"
-CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/msync.sh"
-REPO_URL="https://raw.githubusercontent.com/Harsh-2002/msync.sh/main"
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/msync"
+REPO_URL="https://raw.githubusercontent.com/Harsh-2002/msync/main"
 
 # Print banner
 echo -e "${BLUE}═══════════════════════════════════════════════${NC}"
@@ -285,21 +285,21 @@ show_final_instructions() {
     echo -e "${GREEN}  msync.sh has been successfully installed! 🚀${NC}"
     echo -e "${GREEN}─────────────────────────────────────────────────${NC}"
     echo
-    echo -e "Version: ${msync.sh_VERSION}"
-    echo -e "Location: ${INSTALL_DIR}/msync.sh"
+    echo -e "Version: ${msync_VERSION}"
+    echo -e "Location: ${INSTALL_DIR}/msync"
     echo -e "Config: ${CONFIG_DIR}"
     echo
     echo -e "${BLUE}Test your installation:${NC}"
-    echo -e "  msync.sh --version"
+    echo -e "  msync--version"
     echo
     echo -e "${BLUE}Get help:${NC}"
-    echo -e "  msync.sh --help"
+    echo -e "  msync --help"
     echo
     echo -e "${BLUE}Create your first host group:${NC}"
-    echo -e "  msync.sh --create-group myservers server1,server2,server3"
+    echo -e "  msync --create-group myservers server1,server2,server3"
     echo
     echo -e "${BLUE}Start in interactive mode:${NC}"
-    echo -e "  msync.sh"
+    echo -e "  msync"
     echo
     
     # Check if directory is in PATH
@@ -307,7 +307,7 @@ show_final_instructions() {
         echo -e "${YELLOW}Note: $INSTALL_DIR is not in your PATH.${NC}"
         echo -e "You might need to:"
         echo -e "  1. Add it to your PATH, or"
-        echo -e "  2. Use the full path when running msync.sh: $INSTALL_DIR/msync.sh"
+        echo -e "  2. Use the full path when running msync: $INSTALL_DIR/msync"
         echo
     fi
 }

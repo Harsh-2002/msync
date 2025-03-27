@@ -1,6 +1,6 @@
 # msync - Multi-Host File Synchronization Tool
 
-![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.7.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Compatibility](https://img.shields.io/badge/shell-bash%20%7C%20zsh%20%7C%20sh-orange.svg)
 
@@ -301,5 +301,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Special thanks to the open-source community for feedback and inspiration
 
 ---
-
-*Note: This documentation assumes the script is installed as `msync`. If you install it under a different name, adjust commands accordingly.*

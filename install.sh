@@ -1,5 +1,5 @@
 #!/bin/bash
-# install.sh - Installer for msync (Multi-Host Synchronization Tool)
+# install.sh - Installer for msync.sh (Multi-Host Synchronization Tool)
 # Version: 1.0.0
 
 # ANSI color codes
@@ -10,14 +10,14 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration variables
-MSYNC_VERSION="1.5.0"
+msync.sh_VERSION="1.5.0"
 INSTALL_DIR="/usr/local/bin"
-CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/msync"
-REPO_URL="https://raw.githubusercontent.com/Harsh-2002/msync/main"
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/msync.sh"
+REPO_URL="https://raw.githubusercontent.com/Harsh-2002/msync.sh/main"
 
 # Print banner
 echo -e "${BLUE}═══════════════════════════════════════════════${NC}"
-echo -e "${BLUE}  msync Installer (v${MSYNC_VERSION})${NC}"
+echo -e "${BLUE}  msync.sh Installer (v${msync.sh_VERSION})${NC}"
 echo -e "${BLUE}  Multi-Host Synchronization Tool${NC}"
 echo -e "${BLUE}═══════════════════════════════════════════════${NC}"
 echo
@@ -25,7 +25,7 @@ echo
 # Check if running with sudo or as root
 check_root() {
     if [[ $EUID -ne 0 && ! -w "$INSTALL_DIR" ]]; then
-        echo -e "${YELLOW}This script needs to install msync to $INSTALL_DIR, which requires sudo access.${NC}"
+        echo -e "${YELLOW}This script needs to install msync.sh to $INSTALL_DIR, which requires sudo access.${NC}"
         echo -e "You can either:"
         echo -e "  1. Run this script with sudo"
         echo -e "  2. Run this script again as root"
@@ -54,7 +54,7 @@ check_system_requirements() {
     if command -v bash >/dev/null 2>&1; then
         echo -e "✓ bash found"
     else
-        echo -e "${RED}✗ bash not found. msync requires bash to be installed.${NC}"
+        echo -e "${RED}✗ bash not found. msync.sh requires bash to be installed.${NC}"
         exit 1
     fi
     
@@ -186,7 +186,7 @@ install_dependencies() {
 
 # Download the script
 download_script() {
-    echo -e "${BLUE}Downloading msync...${NC}"
+    echo -e "${BLUE}Downloading msync.sh...${NC}"
     
     # Create a temporary directory
     TMP_DIR=$(mktemp -d)
@@ -197,21 +197,21 @@ download_script() {
     
     # Download the script
     if [ "$DOWNLOADER" = "curl" ]; then
-        if ! curl -sL "$REPO_URL/msync" -o "$TMP_DIR/msync"; then
-            echo -e "${RED}Failed to download msync using curl.${NC}"
+        if ! curl -sL "$REPO_URL/msync.sh" -o "$TMP_DIR/msync.sh"; then
+            echo -e "${RED}Failed to download msync.sh using curl.${NC}"
             rm -rf "$TMP_DIR"
             exit 1
         fi
     else
-        if ! wget -q "$REPO_URL/msync" -O "$TMP_DIR/msync"; then
-            echo -e "${RED}Failed to download msync using wget.${NC}"
+        if ! wget -q "$REPO_URL/msync.sh" -O "$TMP_DIR/msync.sh"; then
+            echo -e "${RED}Failed to download msync.sh using wget.${NC}"
             rm -rf "$TMP_DIR"
             exit 1
         fi
     fi
     
     # Verify download
-    if [ ! -s "$TMP_DIR/msync" ]; then
+    if [ ! -s "$TMP_DIR/msync.sh" ]; then
         echo -e "${RED}Downloaded file is empty or does not exist.${NC}"
         rm -rf "$TMP_DIR"
         exit 1
@@ -219,12 +219,12 @@ download_script() {
     
     echo -e "${GREEN}✓ Download complete${NC}"
     echo
-    TEMP_SCRIPT="$TMP_DIR/msync"
+    TEMP_SCRIPT="$TMP_DIR/msync.sh"
 }
 
 # Install the script
 install_script() {
-    echo -e "${BLUE}Installing msync to $INSTALL_DIR...${NC}"
+    echo -e "${BLUE}Installing msync.sh to $INSTALL_DIR...${NC}"
     
     # Create installation directory if it doesn't exist
     if [ ! -d "$INSTALL_DIR" ]; then
@@ -247,8 +247,8 @@ install_script() {
         sudo_cmd="sudo"
     fi
     
-    if ! $sudo_cmd cp "$TEMP_SCRIPT" "$INSTALL_DIR/msync"; then
-        echo -e "${RED}Failed to copy msync to $INSTALL_DIR${NC}"
+    if ! $sudo_cmd cp "$TEMP_SCRIPT" "$INSTALL_DIR/msync.sh"; then
+        echo -e "${RED}Failed to copy msync.sh to $INSTALL_DIR${NC}"
         rm -rf "$TMP_DIR"
         exit 1
     fi
@@ -256,7 +256,7 @@ install_script() {
     # Clean up
     rm -rf "$TMP_DIR"
     
-    echo -e "${GREEN}✓ msync installed successfully to $INSTALL_DIR/msync${NC}"
+    echo -e "${GREEN}✓ msync.sh installed successfully to $INSTALL_DIR/msync.sh${NC}"
     echo
 }
 
@@ -282,24 +282,24 @@ setup_config() {
 # Final instructions
 show_final_instructions() {
     echo -e "${GREEN}─────────────────────────────────────────────────${NC}"
-    echo -e "${GREEN}  msync has been successfully installed! 🚀${NC}"
+    echo -e "${GREEN}  msync.sh has been successfully installed! 🚀${NC}"
     echo -e "${GREEN}─────────────────────────────────────────────────${NC}"
     echo
-    echo -e "Version: ${MSYNC_VERSION}"
-    echo -e "Location: ${INSTALL_DIR}/msync"
+    echo -e "Version: ${msync.sh_VERSION}"
+    echo -e "Location: ${INSTALL_DIR}/msync.sh"
     echo -e "Config: ${CONFIG_DIR}"
     echo
     echo -e "${BLUE}Test your installation:${NC}"
-    echo -e "  msync --version"
+    echo -e "  msync.sh --version"
     echo
     echo -e "${BLUE}Get help:${NC}"
-    echo -e "  msync --help"
+    echo -e "  msync.sh --help"
     echo
     echo -e "${BLUE}Create your first host group:${NC}"
-    echo -e "  msync --create-group myservers server1,server2,server3"
+    echo -e "  msync.sh --create-group myservers server1,server2,server3"
     echo
     echo -e "${BLUE}Start in interactive mode:${NC}"
-    echo -e "  msync"
+    echo -e "  msync.sh"
     echo
     
     # Check if directory is in PATH
@@ -307,7 +307,7 @@ show_final_instructions() {
         echo -e "${YELLOW}Note: $INSTALL_DIR is not in your PATH.${NC}"
         echo -e "You might need to:"
         echo -e "  1. Add it to your PATH, or"
-        echo -e "  2. Use the full path when running msync: $INSTALL_DIR/msync"
+        echo -e "  2. Use the full path when running msync.sh: $INSTALL_DIR/msync.sh"
         echo
     fi
 }

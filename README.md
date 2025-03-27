@@ -46,7 +46,7 @@ msync --version
 ### One-Line Install
 
 ```bash
-curl -sL https://raw.githubusercontent.com/yourusername/msync/main/install.sh | bash
+curl -sL https://raw.githubusercontent.com/Harsh-2002/msync/main/install.sh | bash
 ```
 
 ### Install Dependencies (if needed)

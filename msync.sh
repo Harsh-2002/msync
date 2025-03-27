@@ -13,7 +13,7 @@ if [ -n "$ZSH_VERSION" ]; then
 fi
 
 # Script version
-VERSION="1.5.0"
+VERSION="1.7.0"
 CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/msync"
 HOSTGROUPS_FILE="$CONFIG_DIR/hostgroups"
 
